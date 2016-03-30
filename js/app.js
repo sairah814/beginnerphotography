@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
     //BEST BUY API
     //https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))?apiKey=ejf9aapbn2z5bxwsrupvj3td&sort=longDescription.asc&show=longDescription&callback=JSON_CALLBACK&format=json
 
@@ -48,12 +46,45 @@ $(document).ready(function () {
     //GOOGLE BOOKS API
     var bookrequest = "Beginner Photography";
     var url = 'https://www.googleapis.com/books/v1/volumes';
-    var params = {
-        key: AIzaSyAMQwLJB37WSjNqsk1gbZwhP4B7J9T5jwk,
+    var bookparams = {
+        key: 'AIzaSyAMQwLJB37WSjNqsk1gbZwhP4B7J9T5jwk',
         q: bookrequest,
-        maxresults: 10
+        maxResults: 20
     };
+    $.ajax({
+            url: url,
+            data: bookparams,
+            dataType: "jsonp", //use jsonp to avoid cross origin issues
+            type: "GET",
+        })
+        .done(function (result) { //this waits for the ajax to return with a succesful promise object
+            //var searchResults = showSearchResults(request.tagged, result.items.length);
+            //$.each is a higher order function. It takes an array and a function as an argument.
+            //The function is executed once for each item in the array.
+            console.log(result);
+            $.each(result.items, function (i, item) {
+                var booklist = item.volumeInfo.title;
+                var bookresults = sortBooks(booklist);
+                console.log(booklist);
+            });
+        })
+        .fail(function (jqXHR, error) { //this waits for the ajax to return with an error promise object
+            var errorElem = showError(error);
+            $('.books').append(errorElem);
+        });
+    var bookarray = [];
 
+    function sortBooks(booklist) {
+        bookarray.push(booklist);
+        if (bookarray.length == 19) {
+            console.log(bookarray);
+        }
+    }
+
+    function showBooks(bookitem) {
+        var bookname = bookitem;
+        $('.books').append(bookname);
+    }
 
     /*filtering by brand:
     $('.quiz-section').on('click', '.option', function () {
