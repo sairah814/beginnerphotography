@@ -27,21 +27,82 @@ The CSS code gets to executed from top to bottom and left to right
 */
 
         body {
-            background-color: #F0ECEC;
+            background-color: #f2efed;
+            font-family: 'Vollkorn', serif;
         }
 
-        .main-wrapper {
-            width: 70%;
+        h1 {
+            font-family: 'Ubuntu';
+            color: #5d6b68;
+        }
+
+        .wrapper {
+            width: 80%;
             margin-left: auto;
             margin-right: auto;
-            text-align: center;
         }
         /* Header styles
 (all the styles inside the < header > or < nav > tags)
 */
+
+        #pagetitle {
+            font-size: 4rem;
+            font-weight: 500;
+            text-align: center;
+            padding: 4rem 2rem 2rem 2rem;
+        }
+
+        #line {
+            border: 4px solid #eb928d;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
         /* Content styles
 (all the styles inside the < sections > or < aside > tags)
 */
+
+        .navigation {
+            display: block;
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 3rem;
+        }
+
+        .tab {
+            display: inline-block;
+            width: 33%;
+            font-weight: 400;
+            font-size: 1.5rem;
+            padding: 1rem;
+            text-align: center;
+            color: #514944;
+            background-color: #f2efed;
+            border: none;
+        }
+
+        .learn-nav,
+        h2,
+        h3,
+        ul {
+            float: left;
+            clear: left;
+        }
+
+        .learn-nav {
+            margin-top: 2rem;
+            font-size: 1.5rem;
+            color: #444f6b;
+        }
+
+        #video-tab {
+            padding: 1rem 0rem .5rem 0rem;
+        }
+
+        #book-tab {
+            padding: 1rem 0rem .5rem 0rem;
+        }
         /* Footer styles
 (all the styles inside the < footer > tag)
 */

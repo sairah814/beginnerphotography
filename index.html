@@ -4,21 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Beginner Photography</title>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,300,500|Vollkorn:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <header>
-        <h1>A Beginner's Guide to Photography</h1>
+        <h1 id="pagetitle">A Beginner's Guide to Photography</h1>
+        <div id="line"></div>
     </header>
     <main class="wrapper">
         <section class="navigation">
-            <div id="learn-tab">Learn the Basics</div>
-            <div id="equip-tab">The Goods</div>
-            <div id="ideas-tab">Explore Ideas</div>
+            <button class="learn-tab tab">Learn the Basics</button>
+            <button class="equip-tab tab">The Goods</button>
+            <button class="ideas-tab tab">Explore Ideas</button>
         </section>
         <section class="content">
             <div class="learn-content">
+                <div class="learn-nav">
+                    <div id="video-tab">Videos</div>
+                    <div id="book-tab">Books</div>
+                </div>
                 <div class="tutorials"></div>
                 <div class="books"></div>
             </div>
@@ -28,12 +34,17 @@
                 <ul class="brand-filter">
                     <li>
                         <label class="radio-choice">
-                            <input class="ans-choice" type="radio" name="choice" value="0" /> <i></i><span class="choice"> Nikon</span>
+                            <input class="ans-choice" type="radio" name="choice" value="0" /> <i></i><span class="choice"> All</span>
                         </label>
                     </li>
                     <li>
                         <label class="radio-choice">
-                            <input class="ans-choice" type="radio" name="choice" value="1" /> <i></i><span class="choice"> Canon</span>
+                            <input class="ans-choice" type="radio" name="choice" value="1" /> <i></i><span class="choice"> Nikon</span>
+                        </label>
+                    </li>
+                    <li>
+                        <label class="radio-choice">
+                            <input class="ans-choice" type="radio" name="choice" value="2" /> <i></i><span class="choice"> Canon</span>
                         </label>
                     </li>
                     <div class="cameras">
