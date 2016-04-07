@@ -1,11 +1,84 @@
 $(document).ready(function () {
+
+    //$(".content").hide();
+    //$(".learn-content").show();
+
+
+    //YouTube API
+
+    var videoparams = {
+        key: 'AIzaSyAe0bg4MZazw0wK_e0Wpp8lPzW716Ih0zY',
+        q: 'Beginner Photography',
+        part: 'snippet',
+        type: 'video',
+        maxResults: 9
+    };
+    var youtubeurl = 'https://www.googleapis.com/youtube/v3/search';
+    $.ajax({
+            url: youtubeurl,
+            data: videoparams,
+            dataType: 'jsonp',
+            type: 'GET'
+        })
+        .done(function (result) {
+            //console.log(result);
+            $.each(result.items, function (i, item) {
+                showResults(item);
+            });
+
+        })
+        .fail(function (jqXHR, error) {
+            console.log(error);
+            $('.tutorials').append(error);
+
+        });
+
+    function showResults(results) {
+        //var output = "<p>" + results.snippet.channelTitle + "<img src='" + results.snippet.thumbnails.high.url + "'/></p>";
+        var videourl = results.id.videoId;
+        var output = "<iframe class= 'materials' height='315' width='420' src='http://www.youtube.com/embed/" + videourl + "' frameborder='0' allowfullscreen></iframe>";
+        $('.tutorials').append(output);
+    }
+    /*
+    //GOOGLE BOOKS API
+    var bookrequest = "Beginner Photography";
+    var booksurl = 'https://www.googleapis.com/books/v1/volumes';
+    var bookparams = {
+        key: 'AIzaSyAMQwLJB37WSjNqsk1gbZwhP4B7J9T5jwk',
+        q: bookrequest,
+        maxResults: 9
+    };
+    $.ajax({
+            url: booksurl,
+            data: bookparams,
+            dataType: "jsonp", //use jsonp to avoid cross origin issues
+            type: "GET",
+        })
+        .done(function (result) {
+            //console.log(result);
+            $.each(result.items, function (i, item) {
+                var booklist = item.volumeInfo.title;
+                var bookresults = showBooks(booklist);
+                //console.log(booklist);
+            });
+        })
+        .fail(function (jqXHR, error) {
+            var errorElem = showError(error);
+            $('.books').append(errorElem);
+        });
+
+
+    function showBooks(bookitem) {
+        var bookname = bookitem;
+        $('.books').append(bookname);
+    }
     //BEST BUY API
     //https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))?apiKey=ejf9aapbn2z5bxwsrupvj3td&sort=longDescription.asc&show=longDescription&callback=JSON_CALLBACK&format=json
 
 
     // the parameters we need to pass in our request to Best Buy API
 
-    /*var query = "nikon";
+    var query = "nikon";
     var url = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
     $.ajax({
         method: 'GET',
@@ -42,40 +115,6 @@ $(document).ready(function () {
         $('.cameras').append(name);
 
     }
-
-    //GOOGLE BOOKS API
-    var bookrequest = "Beginner Photography";
-    var booksurl = 'https://www.googleapis.com/books/v1/volumes';
-    var bookparams = {
-        key: 'AIzaSyAMQwLJB37WSjNqsk1gbZwhP4B7J9T5jwk',
-        q: bookrequest,
-        maxResults: 9
-    };
-    $.ajax({
-            url: booksurl,
-            data: bookparams,
-            dataType: "jsonp", //use jsonp to avoid cross origin issues
-            type: "GET",
-        })
-        .done(function (result) {
-            //console.log(result);
-            $.each(result.items, function (i, item) {
-                var booklist = item.volumeInfo.title;
-                var bookresults = showBooks(booklist);
-                //console.log(booklist);
-            });
-        })
-        .fail(function (jqXHR, error) {
-            var errorElem = showError(error);
-            $('.books').append(errorElem);
-        });
-
-
-    function showBooks(bookitem) {
-        var bookname = bookitem;
-        $('.books').append(bookname);
-    }
-
     //Flickr API
     var flickrurl = 'https://api.flickr.com/services/rest/';
     var photoparams = {
@@ -120,40 +159,6 @@ $(document).ready(function () {
         }
     }
 
-    //YouTube API
-
-    var videoparams = {
-        key: 'AIzaSyAe0bg4MZazw0wK_e0Wpp8lPzW716Ih0zY',
-        q: 'Beginner Photography',
-        part: 'snippet',
-        type: 'video',
-        maxResults: 9
-    };
-    var youtubeurl = 'https://www.googleapis.com/youtube/v3/search';
-    $.ajax({
-            url: youtubeurl,
-            data: videoparams,
-            dataType: 'jsonp',
-            type: 'GET'
-        })
-        .done(function (result) {
-            //console.log(result);
-            $.each(result.items, function (i, item) {
-                showResults(item);
-            });
-
-        })
-        .fail(function (jqXHR, error) {
-            console.log(error);
-            $('.tutorials').append(error);
-
-        });
-
-    function showResults(results) {
-        //var output = "<p>" + results.snippet.channelTitle + "<img src='" + results.snippet.thumbnails.high.url + "'/></p>";
-        var videourl = results.id.videoId;
-        var output = "<iframe height='315' width='420' src='http://www.youtube.com/embed/" + videourl + "' frameborder='0' allowfullscreen></iframe>";
-        $('.tutorials').append(output);
-    }*/
+*/
 
 });

@@ -36,6 +36,17 @@ The CSS code gets to executed from top to bottom and left to right
             color: #5d6b68;
         }
 
+        h2 {
+            font-size: 1.5rem;
+            color: #444f6b;
+            font-weight: 400;
+            margin-top: 1.5rem;
+            margin-left: 16%;
+            margin-right: 16%;
+            background-color: #e8d9d0;
+            padding: .5rem;
+        }
+
         .wrapper {
             width: 80%;
             margin-left: auto;
@@ -44,15 +55,29 @@ The CSS code gets to executed from top to bottom and left to right
 
         p {
             margin-top: 2rem;
-            text-align: center;
             font-size: 1.2rem;
             color: #665c55;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
 
         img,
         iframe {
             height: auto;
             width: 33%;
+        }
+
+        ul,
+        h3,
+        li {
+            list-style-type: none;
+            display: inline;
+        }
+
+        li {
+            padding: 1rem;
         }
         /* Header styles
 (all the styles inside the < header > or < nav > tags)
@@ -95,41 +120,52 @@ The CSS code gets to executed from top to bottom and left to right
             border: none;
         }
 
-        .learn-nav,
-        h2,
-        h3,
-        ul {
+        .learn-nav {
             float: left;
             clear: left;
-        }
-
-        .learn-nav {
             margin-top: 4rem;
             font-size: 1.5rem;
             color: #444f6b;
         }
 
         #video-tab {
-            padding: 1rem 0rem .5rem 0rem;
+            padding: .5rem 1rem .5rem 1rem;
+            background-color: #f5d8cc;
         }
 
         #book-tab {
-            padding: 1rem 0rem .5rem 0rem;
+            margin-top: .5rem;
+            padding: .5rem 1rem .5rem 1rem;
+            background-color: #f5d8cc;
+        }
+
+        #book-tab:hover,
+        #video-tab:hover {
+            background-color: #d4beb4;
         }
 
         .tutorials,
         .cameras,
-        .accessories {
+        .accessories,
+        .ideas {
             margin-top: 4rem;
             margin-left: auto;
             margin-right: auto;
             width: 70%;
+            /*display: inline-block;
+            vertical-align: top;*/
         }
 
         .materials {
-            padding: 1rem;
+            padding: 0rem 1rem 1rem 1rem;
             margin-left: auto;
             margin-right: auto;
+        }
+
+        #filter {
+            display: block;
+            margin-top: 2rem;
+            text-align: center;
         }
         /* Footer styles
 (all the styles inside the < footer > tag)

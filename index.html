@@ -13,67 +13,74 @@
         <h1 id="pagetitle">A Beginner's Guide to Photography</h1>
         <div id="line"></div>
     </header>
-    <main class="wrapper">
-        <section class="navigation">
+    <div class="wrapper">
+        <nav class="navigation">
             <button class="learn-tab tab">Learn the Basics</button>
             <button class="equip-tab tab">The Goods</button>
             <button class="ideas-tab tab">Explore Ideas</button>
-        </section>
-        <section class="content">
-            <div class="learn-content">
-                <p id="learn-text">Learn how to take photos, the different types of cameras, and best practices for any photographer.</p>
+        </nav>
+        <main class="all-content">
+            <section class="learn-content content">
+                <p id="learn-text">Learn about cameras, how to take photos, and best practices for any photographer.</p>
                 <div class="learn-nav">
                     <div id="video-tab">Videos</div>
                     <div id="book-tab">Books</div>
                 </div>
                 <div class="tutorials">
+                    <!--<img class="materials" src="thumbnails/hqdefault-1.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault-2.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault.jpg" />-->
+                </div>
+                <div class="books"></div>
+            </section>
+            <section class="equip-content content">
+                <p id="equip-text">Find the right camera and accessories for you.</p>
+                <h2>Get the Essentials</h2>
+                <div id="filter">
+                    <h3>Filter by brand</h3>
+                    <ul class="brand-filter">
+                        <li>
+                            <label class="radio-choice">
+                                <input class="ans-choice" type="radio" name="choice" value="0" /> <i></i><span class="choice"> All</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="radio-choice">
+                                <input class="ans-choice" type="radio" name="choice" value="1" /> <i></i><span class="choice"> Nikon</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label class="radio-choice">
+                                <input class="ans-choice" type="radio" name="choice" value="2" /> <i></i><span class="choice"> Canon</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="cameras">
                     <img class="materials" src="thumbnails/hqdefault-1.jpg" />
                     <img class="materials" src="thumbnails/hqdefault-2.jpg" />
                     <img class="materials" src="thumbnails/hqdefault.jpg" />
                 </div>
-                <div class="books"></div>
-            </div>
-            <div class="equip-content">
-                <p id="equip-text">Find the right camera and accessories for you.</p>
-                <h2>Get the Essentials</h2>
-
-                <h3>Filter by brand</h3>
-                <ul class="brand-filter">
-                    <li>
-                        <label class="radio-choice">
-                            <input class="ans-choice" type="radio" name="choice" value="0" /> <i></i><span class="choice"> All</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-choice">
-                            <input class="ans-choice" type="radio" name="choice" value="1" /> <i></i><span class="choice"> Nikon</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="radio-choice">
-                            <input class="ans-choice" type="radio" name="choice" value="2" /> <i></i><span class="choice"> Canon</span>
-                        </label>
-                    </li>
-                    <div class="cameras">
-                        <img class="materials" src="thumbnails/hqdefault-1.jpg" />
-                        <img class="materials" src="thumbnails/hqdefault-2.jpg" />
-                        <img class="materials" src="thumbnails/hqdefault.jpg" />
-                        <ul class="stream"></ul>
-                    </div>
-                    <h2>Now Accessorize</h2>
-                    <div class="accessories">
-                        <img class="materials" src="thumbnails/hqdefault-1.jpg" />
-                        <img class="materials" src="thumbnails/hqdefault-2.jpg" />
-                        <img class="materials" src="thumbnails/hqdefault.jpg" />
-                        <ul class="stream"></ul>
-                    </div>
-            </div>
-            <div class="ideas-content">
+                <ul class="stream"></ul>
+                <h2>Now Accessorize</h2>
+                <div class="accessories">
+                    <img class="materials" src="thumbnails/hqdefault-1.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault-2.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault.jpg" />
+                    <ul class="stream"></ul>
+                </div>
+            </section>
+            <section class="ideas-content content">
                 <p id="ideas-text">Find ideas for photos you can take. The best way to get started is challenging yourself to take a different photo (with various lighting and angles and different subjects) for 100 days. </p>
-
-            </div>
-        </section>
-    </main>
+                <div class="ideas">
+                    <img class="materials" src="thumbnails/hqdefault-1.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault-2.jpg" />
+                    <img class="materials" src="thumbnails/hqdefault.jpg" />
+                </div>
+            </section>
+        </main>
+        <footer></footer>
+    </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="js/app.js"></script>
     <script type="text/javascript" src="js/instafeed.min.js"></script>
