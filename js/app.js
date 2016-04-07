@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     // the parameters we need to pass in our request to Best Buy API
 
-    var query = "nikon";
+    /*var query = "nikon";
     var url = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
     $.ajax({
         method: 'GET',
@@ -154,6 +154,6 @@ $(document).ready(function () {
         var videourl = results.id.videoId;
         var output = "<iframe height='315' width='420' src='http://www.youtube.com/embed/" + videourl + "' frameborder='0' allowfullscreen></iframe>";
         $('.tutorials').append(output);
-    }
+    }*/
 
 });

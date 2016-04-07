@@ -41,6 +41,19 @@ The CSS code gets to executed from top to bottom and left to right
             margin-left: auto;
             margin-right: auto;
         }
+
+        p {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #665c55;
+        }
+
+        img,
+        iframe {
+            height: auto;
+            width: 33%;
+        }
         /* Header styles
 (all the styles inside the < header > or < nav > tags)
 */
@@ -91,7 +104,7 @@ The CSS code gets to executed from top to bottom and left to right
         }
 
         .learn-nav {
-            margin-top: 2rem;
+            margin-top: 4rem;
             font-size: 1.5rem;
             color: #444f6b;
         }
@@ -102,6 +115,21 @@ The CSS code gets to executed from top to bottom and left to right
 
         #book-tab {
             padding: 1rem 0rem .5rem 0rem;
+        }
+
+        .tutorials,
+        .cameras,
+        .accessories {
+            margin-top: 4rem;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+        }
+
+        .materials {
+            padding: 1rem;
+            margin-left: auto;
+            margin-right: auto;
         }
         /* Footer styles
 (all the styles inside the < footer > tag)
