@@ -76,8 +76,16 @@ The CSS code gets to executed from top to bottom and left to right
             display: inline;
         }
 
+        ul.tabs li {
+            cursor: pointer;
+        }
+
         li {
             padding: 1rem;
+        }
+
+        li.current {
+            background: #ffffff;
         }
         /* Header styles
 (all the styles inside the < header > or < nav > tags)
@@ -118,6 +126,15 @@ The CSS code gets to executed from top to bottom and left to right
             color: #514944;
             background-color: #f2efed;
             border: none;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .current {
+            display: inline;
+            /*inherit wont work*/
         }
 
         .learn-nav {

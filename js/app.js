@@ -1,8 +1,12 @@
 $(document).ready(function () {
 
-    //$(".content").hide();
-    //$(".learn-content").show();
-
+    $('ul.tabs li').click(function () {
+        var tab_id = $(this).attr('tabindex');
+        $('ul.tabs li').removeClass('current');
+        $('.content').removeClass('current');
+        $(this).addClass('current');
+        $('#' + tab_id).addClass('current');
+    })
 
     //YouTube API
 

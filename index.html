@@ -15,12 +15,15 @@
     </header>
     <div class="wrapper">
         <nav class="navigation">
-            <button class="learn-tab tab">Learn the Basics</button>
-            <button class="equip-tab tab">The Goods</button>
-            <button class="ideas-tab tab">Explore Ideas</button>
+            <ul class="tabs">
+                <li class="learn-tab tab current" tabindex='1'>Learn the Basics</li>
+                <li class="equip-tab tab" tabindex='2'>The Goods</li>
+                <li class="ideas-tab tab" tabindex='3'>Explore Ideas</li>
+            </ul>
+
         </nav>
         <main class="all-content">
-            <section class="learn-content content">
+            <section class="learn-content content current">
                 <p id="learn-text">Learn about cameras, how to take photos, and best practices for any photographer.</p>
                 <div class="learn-nav">
                     <div id="video-tab">Videos</div>
