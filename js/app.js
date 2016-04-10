@@ -106,35 +106,35 @@ $(document).ready(function () {
     //var defaultbestbuy = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
     //runBestBuy(defaultbestbuy);*/
 
-    function runBestBuy(url) {
-        $.ajax({
-            method: 'GET',
-            url: url,
-            data: {
-                format: 'json',
-                apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
-                sort: 'salePrice.asc',
-                page: 1,
-                pageSize: 15
-            },
-            cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
-            preowned: false,
-            active: true,
-            dataType: 'jsonp'
-        })
 
-        .done(function (result) {
-                console.log(result.products);
-                $.each(result.products, function (index, item) {
-                    var essential = showStream(item);
-                });
-            })
-            .fail(function (jqXHR, error) {
-                $('.cameras').append(error);
-                console.log(error);
+    var bestbuyurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
+
+    $.ajax({
+        method: 'GET',
+        url: bestbuyurl,
+        data: {
+            format: 'json',
+            apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
+            sort: 'salePrice.asc',
+            page: 1,
+            pageSize: 15
+        },
+        cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
+        preowned: false,
+        active: true,
+        dataType: 'jsonp'
+    })
+
+    .done(function (result) {
+            console.log(result.products);
+            $.each(result.products, function (index, item) {
+                var essential = showStream(item);
             });
-    }
-
+        })
+        .fail(function (jqXHR, error) {
+            $('.cameras').append(error);
+            console.log(error);
+        });
 
     function showStream(product) {
         var image = "<img class='stream-image' src='" + product.image + "' alt='" + product.name + "'>";
@@ -144,7 +144,7 @@ $(document).ready(function () {
         /*console.log(link);
         console.log(link.replace(/\"/g, ""));
         link.replace(/\"/g, "");*/
-        $('.cameras').append(streamitem);
+        $('.camera-stream').append(streamitem);
 
     }
     /*

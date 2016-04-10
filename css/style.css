@@ -168,7 +168,7 @@ The CSS code gets to executed from top to bottom and left to right
         .cameras,
         .accessories,
         .ideas {
-            margin-top: 4rem;
+            margin-top: 2rem;
             margin-left: auto;
             margin-right: auto;
             width: 70%;
@@ -182,18 +182,33 @@ The CSS code gets to executed from top to bottom and left to right
             margin-right: auto;
         }
 
+        .camera-stream {}
+
         div.stream {
+            /*Need to make this response!!!*/
             width: 33%;
+            height: 28rem;
+            vertical-align: top;
             display: inline-block;
+            padding: 1rem;
         }
 
         img.stream-image {
             width: 100%;
+            padding: .5rem;
+            border: 3px solid #e8d9d0;
+            border-radius: 5px;
+        }
+
+        img.stream-image:hover {
+            padding: 0;
         }
 
         .stream-caption {
             padding: 0rem 1rem 1rem 1rem;
             margin: 0;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
 
         #filter {
