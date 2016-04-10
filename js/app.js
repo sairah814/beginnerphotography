@@ -80,39 +80,71 @@ $(document).ready(function () {
         $('.books').append(bookname);
     }*/
     //BEST BUY API
-    var query = "nikon";
-    var url = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
-    $.ajax({
-        method: 'GET',
-        url: url,
-        data: {
-            format: 'json',
-            apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
-            page: 1, //look into later
-            pageSize: 9 //look into later
-        },
-        cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
-        preowned: false,
-        active: true,
-        dataType: 'jsonp'
-    })
+    //'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
+    //https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&(categoryPath.id=abcat0401000))
+    //?apiKey=ejf9aapbn2z5bxwsrupvj3td&sort=salePrice.asc&callback=JSON_CALLBACK&format=json
 
-    .done(function (result) {
-            console.log(result.products);
-            $.each(result.products, function (index, item) {
-                var essential = showStream(item);
-            });
+
+    /*var currentinput = $("input:checked").val();
+    if (currentinput = "0") {
+        var bestbuyurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
+        $('.cameras').empty();
+        runBestBuy(bestbuyurl);
+    } else if (currentinput = "1") {
+        var bestbuyurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&customerReviewCount>80&(categoryPath.id=abcat0401000))';
+        $('.cameras').empty();
+        runBestBuy(bestbuyurl);
+    } else if (currentinput = "2") {
+        var bestbuyurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=canon&customerReviewCount>80&(categoryPath.id=abcat0401000))';
+        $('.cameras').empty();
+        runBestBuy(bestbuyurl);
+    } else {
+        $('.cameras').empty();
+        $('.cameras').append("Hey there's something wrong here");
+    }
+
+    //var defaultbestbuy = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
+    //runBestBuy(defaultbestbuy);*/
+
+    function runBestBuy(url) {
+        $.ajax({
+            method: 'GET',
+            url: url,
+            data: {
+                format: 'json',
+                apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
+                sort: 'salePrice.asc',
+                page: 1,
+                pageSize: 15
+            },
+            cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
+            preowned: false,
+            active: true,
+            dataType: 'jsonp'
         })
-        .fail(function (jqXHR, error) {
-            $('.cameras').append(error);
-            console.log(error);
-        });
+
+        .done(function (result) {
+                console.log(result.products);
+                $.each(result.products, function (index, item) {
+                    var essential = showStream(item);
+                });
+            })
+            .fail(function (jqXHR, error) {
+                $('.cameras').append(error);
+                console.log(error);
+            });
+    }
+
 
     function showStream(product) {
-        var image = "<img class='materials' src='" + product.image + "' alt='" + product.name + "'>";
-        var name = product.name;
+        var image = "<img class='stream-image' src='" + product.image + "' alt='" + product.name + "'>";
+        var name = "<figcaption class='stream-caption'>" + product.name + "</figcaption>";
         var link = product.url;
-        $('.cameras').append(image);
+        var streamitem = "<div class='stream'><a href='" + link + "'>" + image + "</a>" + name;
+        /*console.log(link);
+        console.log(link.replace(/\"/g, ""));
+        link.replace(/\"/g, "");*/
+        $('.cameras').append(streamitem);
 
     }
     /*

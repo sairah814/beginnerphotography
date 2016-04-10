@@ -182,8 +182,16 @@ The CSS code gets to executed from top to bottom and left to right
             margin-right: auto;
         }
 
-        .item-name {
-            width: 36%;
+        div.stream {
+            width: 33%;
+            display: inline-block;
+        }
+
+        img.stream-image {
+            width: 100%;
+        }
+
+        .stream-caption {
             padding: 0rem 1rem 1rem 1rem;
             margin: 0;
         }
@@ -192,15 +200,6 @@ The CSS code gets to executed from top to bottom and left to right
             display: block;
             margin-top: 2rem;
             text-align: center;
-        }
-
-        img.test {
-            width: 100%;
-        }
-
-        div.testdiv {
-            width: 33%;
-            display: inline-block;
         }
         /* Footer styles
 (all the styles inside the < footer > tag)
