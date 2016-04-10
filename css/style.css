@@ -76,17 +76,11 @@ The CSS code gets to executed from top to bottom and left to right
             display: inline;
         }
 
-        ul.tabs li {
-            cursor: pointer;
-        }
-
         li {
             padding: 1rem;
         }
 
-        li.current {
-            background: #ffffff;
-        }
+
         /* Header styles
 (all the styles inside the < header > or < nav > tags)
 */
@@ -116,26 +110,37 @@ The CSS code gets to executed from top to bottom and left to right
             padding-top: 3rem;
         }
 
+
+
         .tab {
-            display: inline-block;
-            width: 33%;
+            cursor: pointer;
+            display: inline;
+            margin-left: 5%;
             font-weight: 400;
             font-size: 1.5rem;
-            padding: 1rem;
             text-align: center;
             color: #514944;
             background-color: #f2efed;
-            border: none;
-        }
 
+        }
+        .tab:hover {
+            background-color: #edf1f2;
+            border: 1px solid #c0cfcf;
+            border-radius: 3px;
+        }
         .content {
             display: none;
         }
 
         .current {
-            display: inline;
+            display: inherit;
             /*inherit wont work*/
         }
+li.current {
+    background: #edf1f2;
+    border: 1px solid #c0cfcf;
+    border-radius: 3px;
+}
 
         .learn-nav {
             float: left;
@@ -177,6 +182,16 @@ The CSS code gets to executed from top to bottom and left to right
             padding: 0rem 1rem 1rem 1rem;
             margin-left: auto;
             margin-right: auto;
+        }
+
+li.materials{
+
+
+}
+        .item-name{
+            width: 36%;
+            padding: 0rem 1rem 1rem 1rem;
+            margin:0;
         }
 
         #filter {

@@ -7,7 +7,7 @@ $(document).ready(function () {
         $(this).addClass('current');
         $('#' + tab_id).addClass('current');
     })
-
+    /*
     //YouTube API
 
     var videoparams = {
@@ -43,7 +43,7 @@ $(document).ready(function () {
         var output = "<iframe class= 'materials' height='315' width='420' src='http://www.youtube.com/embed/" + videourl + "' frameborder='0' allowfullscreen></iframe>";
         $('.tutorials').append(output);
     }
-    /*
+
     //GOOGLE BOOKS API
     var bookrequest = "Beginner Photography";
     var booksurl = 'https://www.googleapis.com/books/v1/volumes';
@@ -75,7 +75,7 @@ $(document).ready(function () {
     function showBooks(bookitem) {
         var bookname = bookitem;
         $('.books').append(bookname);
-    }
+    }*/
     //BEST BUY API
     //https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))?apiKey=ejf9aapbn2z5bxwsrupvj3td&sort=longDescription.asc&show=longDescription&callback=JSON_CALLBACK&format=json
 
@@ -91,7 +91,7 @@ $(document).ready(function () {
             format: 'json',
             apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
             page: 1, //look into later
-            pageSize: 36 //look into later
+            pageSize: 9 //look into later
         },
         cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
         preowned: false,
@@ -100,13 +100,10 @@ $(document).ready(function () {
     })
 
     .done(function (result) {
-            //console.log(result.products);
+            console.log(result.products);
             $.each(result.products, function (index, item) {
                 var essential = showStream(item);
             });
-
-            //if the response is failure
-
         })
         .fail(function (jqXHR, error) {
             $('.cameras').append(error);
@@ -114,11 +111,13 @@ $(document).ready(function () {
         });
 
     function showStream(product) {
-        //var image = "<img src='" + product.image + "' alt='" + product.name + "'>";
+        var image = "<img class='materials' src='" + product.image + "' alt='" + product.name + "'>";
         var name = product.name;
-        $('.cameras').append(name);
+        var link = product.url;
+        $('.cameras').append(image);
 
     }
+    /*
     //Flickr API
     var flickrurl = 'https://api.flickr.com/services/rest/';
     var photoparams = {
