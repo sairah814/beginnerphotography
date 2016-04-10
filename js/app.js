@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+    //User can click and change content with main navigation
     $('ul.tabs li').click(function () {
         var tab_id = $(this).attr('tabindex');
         $('ul.tabs li').removeClass('current');
@@ -7,6 +8,8 @@ $(document).ready(function () {
         $(this).addClass('current');
         $('#' + tab_id).addClass('current');
     })
+
+
     /*
     //YouTube API
 
@@ -77,11 +80,6 @@ $(document).ready(function () {
         $('.books').append(bookname);
     }*/
     //BEST BUY API
-    //https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))?apiKey=ejf9aapbn2z5bxwsrupvj3td&sort=longDescription.asc&show=longDescription&callback=JSON_CALLBACK&format=json
-
-
-    // the parameters we need to pass in our request to Best Buy API
-
     var query = "nikon";
     var url = 'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
     $.ajax({
