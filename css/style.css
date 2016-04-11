@@ -148,6 +148,14 @@ The CSS code gets to executed from top to bottom and left to right
             color: #444f6b;
         }
 
+        .sidecontent {
+            display: none;
+        }
+
+        .sidecurrent {
+            display: inherit;
+        }
+
         #video-tab {
             padding: .5rem 1rem .5rem 1rem;
             background-color: #f5d8cc;

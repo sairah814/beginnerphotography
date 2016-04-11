@@ -9,8 +9,14 @@ $(document).ready(function () {
         $('#' + tab_id).addClass('current');
     })
 
+    $('.sidenav').click(function () {
+        var sidenav_id = $(this).attr('sidenavindex');
+        $('.sidenav').removeClass('sidecurrent');
+        $('.sidecontent').removeClass('sidecurrent');
+        $(this).addClass('sidecurrent');
+        $('#' + sidenav_id).addClass('sidecurrent');
+    })
 
-    /*
     //YouTube API
 
     var videoparams = {
@@ -78,7 +84,9 @@ $(document).ready(function () {
     function showBooks(bookitem) {
         var bookname = bookitem;
         $('.books').append(bookname);
-    }*/
+    }
+
+
     //BEST BUY API
     //'https://api.bestbuy.com/v1/products((search=DSLR)&manufacturer=nikon&(categoryPath.id=abcat0401000))';
     //https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&(categoryPath.id=abcat0401000))
