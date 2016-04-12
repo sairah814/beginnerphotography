@@ -115,11 +115,11 @@ $(document).ready(function () {
     //runBestBuy(defaultbestbuy);*/
 
 
-    var bestbuyurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
+    var camerasurl = 'https://api.bestbuy.com/v1/products((search=DSLR)&customerReviewCount>80&onSale=true&color=black&(categoryPath.id=abcat0401000))';
 
     $.ajax({
         method: 'GET',
-        url: bestbuyurl,
+        url: camerasurl,
         data: {
             format: 'json',
             apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
@@ -152,8 +152,46 @@ $(document).ready(function () {
         /*console.log(link);
         console.log(link.replace(/\"/g, ""));
         link.replace(/\"/g, "");*/
-        $('.camera-stream').append(streamitem);
+        $('.cameras').append(streamitem);
 
+    }
+    var accessoriesurl = "https://api.bestbuy.com/v1/products((search=cases)&onSale=true&(categoryPath.id=abcat0401000))";
+    $.ajax({
+        method: 'GET',
+        url: accessoriesurl,
+        data: {
+            format: 'json',
+            apiKey: 'ejf9aapbn2z5bxwsrupvj3td',
+            sort: 'salePrice.asc',
+            page: 1,
+            pageSize: 15
+        },
+        cache: true, // necessary because our API rejects queries with unrecognized query parameters, such as the underscore injected when this isn't included
+        preowned: false,
+        active: true,
+        dataType: 'jsonp'
+    })
+
+    .done(function (result) {
+            console.log(result.products);
+            $.each(result.products, function (index, item) {
+                var streamimages = showAccessories(item);
+            });
+        })
+        .fail(function (jqXHR, error) {
+            $('.cameras').append(error);
+            console.log(error);
+        });
+
+    function showAccessories(product) {
+        var image = "<img class='stream-image' src='" + product.image + "' alt='" + product.name + "'>";
+        var name = "<figcaption class='stream-caption'>" + product.name + "</figcaption>";
+        var link = product.url;
+        var streamitem = "<div class='stream'><a href='" + link + "'>" + image + "</a>" + name;
+        /*console.log(link);
+        console.log(link.replace(/\"/g, ""));
+        link.replace(/\"/g, "");*/
+        $('.accessories').append(streamitem);
     }
     /*
     //Flickr API
