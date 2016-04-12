@@ -190,12 +190,11 @@ The CSS code gets to executed from top to bottom and left to right
             margin-right: auto;
         }
 
-        .camera-stream {}
-
         div.stream {
             /*Need to make this response!!!*/
             width: 33%;
             height: 28rem;
+            max-height: 30rem;
             vertical-align: top;
             display: inline-block;
             padding: 1rem;

@@ -68,10 +68,10 @@ $(document).ready(function () {
             type: "GET",
         })
         .done(function (result) {
-            //console.log(result);
+            console.log(result);
             $.each(result.items, function (i, item) {
-                var booklist = item.volumeInfo.title;
-                var bookresults = showBooks(booklist);
+                //var booklist = item.volumeInfo.title;
+                var bookresults = showBooks(item);
                 //console.log(booklist);
             });
         })
@@ -82,8 +82,16 @@ $(document).ready(function () {
 
 
     function showBooks(bookitem) {
-        var bookname = bookitem;
-        $('.books').append(bookname);
+        /*var bookname = bookitem;
+        $('.books').append(bookname);*/
+
+        var bookimage = "<img class='stream-image' src='" + bookitem.volumeInfo.imageLinks.thumbnail + "' alt='" + bookitem.volumeInfo.title + "'>";
+        var bookname = "<figcaption class='stream-caption'>" + bookitem.volumeInfo.title + "</figcaption>";
+        var booklink = bookitem.volumeInfo.previewLink;
+        var streamitem = "<div class='stream'><a href='" + booklink + "'>" + bookimage + "</a>" + bookname;
+        $('.books').append(streamitem);
+        /**/
+
     }
 
 
@@ -193,14 +201,14 @@ $(document).ready(function () {
         link.replace(/\"/g, "");*/
         $('.accessories').append(streamitem);
     }
-    /*
+
     //Flickr API
     var flickrurl = 'https://api.flickr.com/services/rest/';
     var photoparams = {
         method: 'flickr.groups.pools.getPhotos',
         api_key: '23d67b1c61e2e05e99bd91280fd1f0d6',
         group_id: '1601790@N20',
-        extras: 'url_sq, views',
+        extras: 'url_c, views',
         nojsoncallback: 1,
         format: 'json',
         per_page: 15
@@ -213,7 +221,7 @@ $(document).ready(function () {
             type: 'GET'
         })
         .done(function (result) {
-            //console.log(result.photos.photo);
+            console.log(result.photos.photo);
             $.each(result.photos.photo, function (i, item) {
                 var photos = showPhotoIdeas(item);
                 $('.ideas-content').append(photos);
@@ -229,15 +237,24 @@ $(document).ready(function () {
     function showPhotoIdeas(photostream) {
         //var image = "<img src='" + product.image + "' alt='" + product.name + "'>";
 
-        var imageurl = photostream.url_sq;
+        var imageurl = photostream.url_c;
         var imagename = photostream.title;
         var imageviews = parseInt(photostream.views);
         //return ("<img src='" + imageurl + "' alt='" + imagename + "'>");
         if (imageviews > 10) {
-            return ("<img src='" + imageurl + "' alt='" + imagename + "'>");
+            return ("<img class= 'materials' src='" + imageurl + "' alt='" + imagename + "'>");
         }
     }
 
-*/
-
+    phonecatApp.config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/phones', {
+            templateUrl: 'partials/phone-list.html',
+            controller: 'PhoneListCtrl'
+        }).when('/phones/:phoneId', {
+            templateUrl: 'partials/phone-detail.html',
+            controller: 'PhoneDetailCtrl'
+        }).otherwise({
+            redirectTo: '/phones'
+        });
+    }]);
 });
